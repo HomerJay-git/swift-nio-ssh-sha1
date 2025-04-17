@@ -59,7 +59,8 @@ let package = Package(
                 .product(name: "Crypto", package: "swift-crypto"),
                 .product(name: "Atomics", package: "swift-atomics"),
             ],
-            swiftSettings: strictConcurrencySettings
+            swiftSettings:
+                [.define("ENABLE_INSECURE_SSH_RSA_SHA1")] + strictConcurrencySettings
         ),
         .executableTarget(
             name: "NIOSSHClient",
